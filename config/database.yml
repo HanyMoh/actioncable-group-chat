@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: orchtech-hr
+  password: orchtech
+
+development:
+  <<: *default
+  database: pbchat_dev
+
+production:
+  <<: *default
+  database: pbchat_production
+  username: pbchat
+  password: <%= ENV['PBCHAT_DATABASE_PASSWORD'] %>
